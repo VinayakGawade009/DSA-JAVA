@@ -1,4 +1,4 @@
-// 
+// https://codeforces.com/problemset/problem/1845/A
 
 import java.util.*;
 
@@ -13,45 +13,45 @@ public class CF8_17 {
             int k = sc.nextInt();
             int x = sc.nextInt();
 
-            int count = 0;
-
-            boolean possible = false;
-            int first = 0;
-            int sec = 0;
-
-            for(int i = k; i > 0; i--) {
-                if(i != x && i == 1) {
-                    possible = true;
-                    first = 1;
-                    break;
+            if(x != 1) {
+                System.out.println("YES");
+                System.out.println(n);
+                for(int i = 0; i < n; i++) {
+                    System.out.print(1 + " ");
                 }
-                if(i != x && n % i != x) {
-                    possible = true;
-                    first = i;
-                    sec = n % i;
-                    break;
-                }
-            }
-
-            if(!possible) {
-                System.out.println("NO");
+                System.out.println();
                 continue;
             }
 
-            count += n / first;
-            if(sec != 0) {
-                count++;
-            }
+            else if(x == 1) {
 
-            System.out.println("YES");
-            System.out.println(count);
-            for(int i = 0; i < n / first; i++) {
-                System.out.print(first + " ");
+                if(n % 2 == 0) {
+                    if(k >= 2) {
+                        System.out.println("YES");
+                        System.out.println(n / 2);
+                        for(int i = 0; i < n / 2; i++) {
+                            System.out.print(2 + " ");
+                        }
+                        System.out.println();
+                       continue;
+                    }
+               } 
+               
+               else {
+
+                   if(k >= 3) {
+                       System.out.println("YES");
+                       System.out.println(1 + (n - 3) / 2);
+                       System.out.print(3 + " ");
+                       for(int i = 0; i < (n - 3) / 2; i++) {
+                        System.out.print(2 + " ");
+                       }
+                       System.out.println();
+                       continue;
+                   }
+               }
             }
-            if(sec != 0) {
-                System.out.print(sec);
-            }
-            System.out.println();
+            System.out.println("NO");
         }
         sc.close();
     }

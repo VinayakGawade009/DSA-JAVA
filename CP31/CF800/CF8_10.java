@@ -1,10 +1,8 @@
+// https://codeforces.com/problemset/problem/1873/C
+
 import java.util.*;
 
 public class CF8_10 {
-
-    public static void countPoints(int leftCol, int rightCol, int leftRow, int rightRow, int[] points, int row, int col, int ring) {
-        
-    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -12,18 +10,19 @@ public class CF8_10 {
         int t = sc.nextInt();
 
         while(t-- > 0) {
-            String[] mat = new String[10];
+            
+            int totalScore = 0;
+            for(int i = 0; i < 10; i++) {
+                String s = sc.next();
+                for(int j = 0; j < 10; j++) {
+                    if(s.charAt(j) == 'X') {
+                        int minEdgeDist = Math.min(Math.min(i, j), Math.min(9 - i, 9 - j));
+                        totalScore += minEdgeDist + 1;
+                    }
+                }
+            }
 
-            int points[] = {0};
-
-            int leftCol = 0;
-            int rightCol = 9;
-            int leftRow = 0;
-            int rightRow = 9;
-
-            countPoints(leftCol, rightCol, leftRow, rightRow, points, 0, 0, 1);
-
-            System.out.println(points[0]);
+            System.out.println(totalScore);
         }
 
         sc.close();
