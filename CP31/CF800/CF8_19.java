@@ -1,4 +1,4 @@
-//
+// https://codeforces.com/problemset/problem/1834/A
 
 import java.util.*;
 
@@ -23,41 +23,21 @@ public class CF8_19 {
                 }
             }
 
-            if(pos == 1 && neg == 1) {
-                System.out.println(1);
-                continue;
+            int ans = 0;
+
+            while(neg > pos) {
+                neg--;
+                pos++;
+                ans++;
             }
 
-            if(pos >= neg) {
-                if(neg % 2 == 0) {
-                    System.out.println(0);
-                } else {
-                    System.out.println(1);
-                }
-                continue;
+            if(neg % 2 != 0) {
+                neg--;
+                pos++;
+                ans++;
             }
 
-            if(pos == 0 && neg == 2) {
-                if(neg % 2 == 0) {
-                    System.out.println(2);
-                }
-                continue;
-            }
-            
-            if(pos == 0 && (neg == 3 || neg == 1)) {
-                System.out.println(neg);
-                continue;
-            }
-
-            int change = neg / 2;
-            neg -= change;
-            pos += change;
-            if(neg % 2 != 0 && neg > 0) {
-                change++;
-            }
-
-            System.out.println(change);
-            
+            System.out.println(ans);
         }
         sc.close();
     }
