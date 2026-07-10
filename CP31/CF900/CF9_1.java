@@ -47,3 +47,9 @@ public class CF9_1 {
         }
     }
 }
+
+// This problem teaches you two highly relevant CP patterns:
+
+// Reverse Thinking (Meet-in-the-Middle concept): Whenever a problem asks "find a starting point that reaches A and B," stop trying to search from the unknown starting point. Search outwards from A, search outwards from B, and find where they intersect. This drastically reduces the time complexity from infinite down to O(1) operations per test case.
+
+// Using Sets for Geometry/Grids: When dealing with grid movements, rotations, or reflections where overlapping might occur (like a == b), do not waste time writing manual deduplication logic. Calculate everything blindly and let a HashSet filter out the duplicates for you. It saves time and prevents silly edge-case bugs during a contest.
